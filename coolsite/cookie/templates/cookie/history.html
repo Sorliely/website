@@ -1,0 +1,13 @@
+{% extends 'cookie/base.html' %}
+
+{% block content %}
+<ul>
+    {% for p in recipe %}
+    <li>
+        <h2>{{p.title}}</h2>
+        <p class="line">{{p.content}}</p>
+
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

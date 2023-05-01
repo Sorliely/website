@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+	<link type="text/css" href="{% static 'cookie/css/styels.css' %}" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+</head>
+<body>
+
+{% block mainmenu %}
+	<h1>Cookie</h1>
+	<div class="pencilсase">
+       <a href="{% url 'home' %}">История</a> <!-- переходит по имени, они в urls.cookie-->
+        <a href="{% url 'history' %}">Рецепты</a>
+        <a href="{% url 'about' %}">О нас</a>
+    </div>
+<ul class="selecteds">
+{% if cat_selected == 0 %}
+    <li class="selected">Все категории</li>
+{% else %}
+    <li><a href="{% url 'home' %}">Все категории</a></li>
+{% endif %}
+
+{% for c in cats %}
+    {% if c.pk == cat_selected %}
+        <li class="selected">{{c.name}}</li>
+    {% else %}
+        <li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+{% endblock mainmenu %}
+
+{% block content %}
+
+
+{% endblock %}
+
+    <div class="footer">
+        <ul>
+            <p>Связаться с разработчиком</p>
+            <li>
+                <a href="https://github.com/Sorliely" target="_blank">gitHub</a>
+            </li>
+            <li>
+                <a href="https://vk.com/nikkii1" target="_blank">В контакте</a>
+            </li>
+
+        </ul>
+    </div>
+</body>
+</html>

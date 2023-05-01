@@ -1,0 +1,171 @@
+body {
+    margin: 0%;
+    max-width: 100%;
+    background:  #fffbe9;
+}
+h1 {
+    color: #fff9dc;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    background: black;
+    height: 50px;
+    margin:0%;
+    padding-left: 30px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+}
+
+.pencilсase {
+    background-color: rgb(212, 212, 161);
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin: 0px;
+
+
+}
+
+
+/* .rightfoto{
+    float: right;
+    margin: 0px;
+    max-width: 200px;
+    max-height: 1000px;
+    margin-top:180px;
+} */
+
+a {
+    color:black;
+    text-decoration: none;
+
+}
+a:hover{
+    text-decoration: underline;
+}
+
+.pencilсase a:nth-child(2),
+.pencilсase a:nth-child(3){
+    padding-left:40px;
+}
+
+.chocolet img{
+    margin:20px 20px 0px 20px;
+    float: left;
+
+}
+ .chocolet h2{
+    padding-top: 20px;
+ }
+.chocolet p{
+    font-size:20px;
+    margin-right: 15px;
+    font-style: italic;
+    font-weight: 520;
+}
+
+.content{
+    margin-right: 200px;
+    border-right: 2px solid black ;
+    height: 1000px;
+    margin-top: 0%;
+}
+
+.content img{
+    max-width: 400px;
+    border-radius: 28px;
+}
+
+.oreo h2{
+    float:right;
+    padding-top: 70px;
+    padding-right: 100px;
+
+}
+
+.oreo img{
+    margin-top: 100px;
+    float: right;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.oreo p{
+    padding-top: 130px;
+    margin-left: 20px;
+    font-style: italic;
+    font-weight: 520;
+    font-size:20px;
+
+}
+
+.footer {
+    background-color: black;
+    margin:500px 0px 0px 0px;
+    padding: 0px;
+    color:  #fff9dc;
+    font-size: 20px;
+    padding: 20px 0px 20px 0px
+
+}
+
+.footer a{
+    color: #fff9dc;
+    text-decoration: none;
+}
+
+.footer a:active{
+    color: aqua;
+}
+
+.footer li{
+    list-style-type: none;
+    padding-bottom: 10px;
+    padding-left: 20px;
+
+}
+
+.messege li{
+    list-style-type: none;
+
+}
+
+.messege li:nth-child(2),
+.messege li:nth-child(3){
+    margin-top: 20px;
+
+}
+
+.messege li:nth-child(3){
+    font-size: 30px;
+    height: 320px;
+
+}
+
+.recipe a{
+    background: rgb(194, 193, 122);
+    text-decoration: none;
+    font-size:50px;
+}
+
+.line p {
+    text-decoration:none;
+    background: red;
+}
+
+li {
+  list-style-type: none;
+  /* Убираем маркеры */
+}
+
+.selecteds ul{
+    float:right;
+    background: rgb(240, 240, 194);
+    font-size: 30px ;
+    margin: 0px;
+    text-decoration:none;
+    background: red;
+
+}
+

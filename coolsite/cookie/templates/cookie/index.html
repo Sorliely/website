@@ -1,0 +1,16 @@
+{% extends 'cookie/base.html' %}
+
+{% block content %}
+
+
+<ul>
+    {% for p in posts %}
+    <li>
+        <img alt="извините картинка недоступна"> {{p.photo}}
+        <h2>{{p.title}}</h2>
+        <p>{{p.content}}</p>
+
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
