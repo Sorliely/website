@@ -3,10 +3,16 @@
 {% block content %}
 
 
+{% if p.photo %}
+    <p><img class="photo" src="{{p.photo.url}}" </p>
+{% endif %}
+
 <ul>
     {% for p in posts %}
     <li>
-        <img alt="извините картинка недоступна"> {{p.photo}}
+        {% if p.photo %}
+            <p><img class="photo" src="{{p.photo.url}}" </p>
+        {% endif %}
         <h2>{{p.title}}</h2>
         <p>{{p.content}}</p>
 

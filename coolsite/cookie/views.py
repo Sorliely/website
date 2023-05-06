@@ -5,10 +5,9 @@ from .models import *
 # Пороль от супер узера g9XSHvdtUY{2
 
 def index(request):
-    cats = Category.objects.all()
+    """главная страница"""
     posts = Cookie.objects.all()
     context = {'posts': posts,
-               'cats': cats,
                'title': 'Cookie',
                'cat_selected': 0,
                }
@@ -35,10 +34,9 @@ def pageNotFound(request, exception):
     return HttpResponseNotFound("<h1>Страница не существует</h1>")
 
 def show_category(request, cat_id):
-    cats = Category.objects.all()
+    """категориии хз зачем"""
     posts = Cookie.objects.filter(cat_id=cat_id)
     context = {'posts': posts,
-               'cats': cats,
                'title': 'Cookie',
                'cat_selected': cat_id,
                }
