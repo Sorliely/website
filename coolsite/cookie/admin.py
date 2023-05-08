@@ -8,8 +8,16 @@ class CookieAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
     #содержит информация по каким полям можно осуществлять поиск
     search_fields = ('title', 'content')
+    # заполняет автоматически поле slug на основе имени
+    prepopulated_fields = {"slug": ("title",)}
 
-
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'slug')
+    list_display_links = ('id', 'name')
+    search_fields = ('name',)
+    prepopulated_fields = {"slug": ("name",)}
 
 admin.site.register(Cookie, CookieAdmin)
 admin.site.register(Recipe, CookieAdmin)
+admin.site.register(Category, CategoryAdmin)
+

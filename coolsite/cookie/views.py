@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 
 # Пороль от супер узера g9XSHvdtUY{2
@@ -33,13 +33,24 @@ def pageNotFound(request, exception):
     """отоброжение ошибки 404"""
     return HttpResponseNotFound("<h1>Страница не существует</h1>")
 
+def show_post(request, post_slug):
+    post = get_object_or_404(Cookie, slug=post_slug)
+    context = {
+        'posts': post,
+        'title': 'Cookie',
+        'cat_selected': post.cat_id,
+    }
+
+    return render(request, 'cookie/post.html', context=context)
+
 def show_category(request, cat_id):
     """категориии хз зачем"""
     posts = Cookie.objects.filter(cat_id=cat_id)
-    context = {'posts': posts,
-               'title': 'Cookie',
-               'cat_selected': cat_id,
-               }
+    context = {
+        'posts': posts,
+        'title': 'Cookie',
+        'cat_selected': cat_id,
+    }
     if len(posts) == 0:
         raise Http404()
     return render(request, 'cookie/index.html', context=context)
