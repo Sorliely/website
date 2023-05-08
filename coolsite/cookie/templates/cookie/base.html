@@ -25,36 +25,24 @@
     <li><a href="{% url 'home' %}">Все категории</a></li>
 {% endif %}
 
-{% appealcats as category%}
-{% for c in category %}
-    {% if c.pk == cat_selected %}
-        <li class="selected">{{c.name}}</li>
-    {% else %}
-        <li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
-    {% endif %}
-{% endfor %}
-
-</ul>
+{% show_categories %}
 
 {% endblock mainmenu %}
-
 {% block content %}
-
 
 {% endblock %}
 
-    <div class="footer">
-        <ul>
+<div class="footer">
+    <ul>
+        <p>Связаться с разработчиком</p>
+        <li>
+            <a href="https://github.com/Sorliely" target="_blank">gitHub</a>
+        </li>
+        <li>
+            <a href="https://vk.com/nikkii1" target="_blank">В контакте</a>
+        </li>
 
-            <p>Связаться с разработчиком</p>
-            <li>
-                <a href="https://github.com/Sorliely" target="_blank">gitHub</a>
-            </li>
-            <li>
-                <a href="https://vk.com/nikkii1" target="_blank">В контакте</a>
-            </li>
-
-        </ul>
-    </div>
+    </ul>
+</div>
 </body>
 </html>

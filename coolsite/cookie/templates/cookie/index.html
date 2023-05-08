@@ -1,11 +1,5 @@
 {% extends 'cookie/base.html' %}
-
 {% block content %}
-
-
-{% if p.photo %}
-    <p><img class="photo" src="{{p.photo.url}}" </p>
-{% endif %}
 
 <ul>
     {% for p in posts %}
