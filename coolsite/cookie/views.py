@@ -1,8 +1,8 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
+from .forms import *
 from .models import *
 
-# Пороль от супер узера g9XSHvdtUY{2
 
 def index(request):
     """главная страница"""
@@ -21,7 +21,22 @@ def about(request):
     return render(request, "cookie/about.html")
 
 def addpage(request):
-    return HttpResponseNotFound("")
+    """функция авторизации
+    выполняет фунуцию приема данных и если данные ошибочные возвращает
+    их пользователю"""
+    if request.method == 'POST':
+        form = AddPostForm(request.POST)
+        if form.is_valid():
+            #print(form.cleaned_data)
+            #добавление новой записи в бд
+            try:
+                Cookie.objects.create(**form.cleaned_data)
+                return redirect('home')
+            except:
+                form.add_error(None, 'Ошибка добавления поста')
+    else:
+        form = AddPostForm
+    return render(request, 'cookie/addpage.html', {'form': form, 'title': 'Добавление статьи'})
 
 def login(request):
     return HttpResponseNotFound("Автаризация")
