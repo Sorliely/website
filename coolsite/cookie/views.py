@@ -25,15 +25,12 @@ def addpage(request):
     выполняет фунуцию приема данных и если данные ошибочные возвращает
     их пользователю"""
     if request.method == 'POST':
-        form = AddPostForm(request.POST)
+        form = AddPostForm(request.POST, request.FILES)
         if form.is_valid():
             #print(form.cleaned_data)
             #добавление новой записи в бд
-            try:
-                Cookie.objects.create(**form.cleaned_data)
-                return redirect('home')
-            except:
-                form.add_error(None, 'Ошибка добавления поста')
+            form.save()
+            return redirect('home')
     else:
         form = AddPostForm
     return render(request, 'cookie/addpage.html', {'form': form, 'title': 'Добавление статьи'})
