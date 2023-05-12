@@ -1,17 +1,34 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound,Http404
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView
 from .forms import *
 from .models import *
 
 
-def index(request):
-    """главная страница"""
-    posts = Cookie.objects.all()
-    context = {'posts': posts,
-               'title': 'Cookie',
-               'cat_selected': 0,
-               }
-    return render(request, 'cookie/index.html', context=context)
+class CookieHome(ListView):
+    model = Cookie
+    template_name = 'cookie/index.html'
+    context_object_name = 'posts'
+    allow_empty = False
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Главная страница'
+        context['cat_selected'] = 0
+
+        return context
+
+    def get_queryset(self):
+        return Cookie.objects.filter(is_published=True)
+
+# def index(request):
+#     """главная страница"""
+#     posts = Cookie.objects.all()
+#     context = {'posts': posts,
+#                'title': 'Cookie',
+#                'cat_selected': 0,
+#                }
+#     return render(request, 'cookie/index.html', context=context)
 
 def history(request,):
     recipe = Recipe.objects.all()

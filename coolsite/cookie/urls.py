@@ -4,7 +4,7 @@ from .views import *
 """Здесь прописываем все маршруты текущего приложения"""
 
 urlpatterns = [
-    path('', index, name='home'),
+    path('', CookieHome.as_view(), name='home'),
     path('history/', history, name='history'),
     path('about/', about, name='about'),
     path('login/',login, name='login'),
