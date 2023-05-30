@@ -8,6 +8,7 @@ urlpatterns = [
     path('history/', history, name='history'),
     path('about/', about, name='about'),
     path('login/',login, name='login'),
+    path('register/', RegisterUser.as_view(), name='register'),
     path('addpage/',addpage, name='addpage'),
     path('post/<slug:post_slug>/', show_post, name='post'),
     path('category/<int:cat_id>/', show_category, name='category'),
