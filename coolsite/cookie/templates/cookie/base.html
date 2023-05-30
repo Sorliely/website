@@ -3,44 +3,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{title}}</title>
-	<link type="text/css" href="{% static 'cookie/css/styels.css' %}" rel="stylesheet" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'cookie/css/styels.css' %}" rel="stylesheet"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 </head>
 <body>
 
 {% block mainmenu %}
-	<h1>Cookie</h1>
-	<div class="pencilсase">
-        <a href="{% url 'home' %}">История</a> <!-- переходит по имени, они в urls.cookie-->
-        <a href="{% url 'history' %}">Рецепты</a>
-        <a href="{% url 'about' %}">О нас</a>
-        <a href="{% url 'addpage' %}">Добавить статью</a>
-    </div>
-<ul class="selecteds">
-{% if cat_selected == 0 %}
-    <li class="selected">Все категории</li>
-{% else %}
-    <li><a href="{% url 'home' %}">Все категории</a></li>
-{% endif %}
-{% show_categories %}
-{% endblock mainmenu %}
+<h1>Cookie</h1>
+<div class="pencilсase">
+    <a href="{% url 'home' %}">История</a> <!-- переходит по имени, они в urls.cookie-->
+    <a href="{% url 'history' %}">Рецепты</a>
+    <a href="{% url 'about' %}">О нас</a>
+    <a href="{% url 'addpage' %}">Добавить статью</a>
+    <a href="{% url 'login' %}">Войти</a> | <a href="{% url 'register' %}">Регистрация</a>
 
-{% block content %}
-{% endblock %}
-
-<div class="footer">
-    <ul>
-        <p>Связаться с разработчиком</p>
-        <li>
-            <a href="https://github.com/Sorliely" target="_blank">gitHub</a>
-        </li>
-        <li>
-            <a href="https://vk.com/nikkii1" target="_blank">В контакте</a>
-        </li>
-
-    </ul>
 </div>
+<ul class="selecteds">
+    {% if cat_selected == 0 %}
+    <li class="selected">Все категории</li>
+    {% else %}
+    <li><a href="{% url 'home' %}">Все категории</a></li>
+    {% endif %}
+
+    {% show_categories %}
+</ul>
+    {% endblock mainmenu %}
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="footer">
+        <ul>
+            <p>Связаться с разработчиком</p>
+            <li>
+                <a href="https://github.com/Sorliely" target="_blank">gitHub</a>
+            </li>
+            <li>
+                <a href="https://vk.com/nikkii1" target="_blank">В контакте</a>
+            </li>
+
+        </ul>
+    </div>
 </body>
 </html>
